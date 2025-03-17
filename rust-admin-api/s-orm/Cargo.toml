@@ -1,0 +1,13 @@
+[package]
+name = "s-orm"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+sea-orm = { workspace = true, features = ["runtime-tokio-rustls", "sqlx-mysql", "macros"] }
+serde = { workspace = true }
+tokio = { workspace = true }
+r2d2 = {workspace = true}
+axum = {workspace = true}
+dotenv = {workspace = true}
+s-derive = { workspace = true, features = ["sea"] }

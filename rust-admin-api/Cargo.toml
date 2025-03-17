@@ -1,0 +1,81 @@
+[package]
+name = "cargo-demo"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "cargo_demo"
+
+[workspace]
+members = [
+    ".", "s-orm", "res", "redis-r2d2"]
+    
+[workspace.dependencies]
+r2d2 = "0.8"
+bytes = "1.5"
+axum = "0.8.1"
+tokio = { version = "1", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+tower = "0.5.2"
+tower-http = { version = "0.6.2", features = ["trace"] }
+s-derive = { path = "s-derive" }
+diesel = {  version = "2.2.0", features = ["mysql", "r2d2", "chrono"] }
+dotenv = "0.15.0"
+sea-orm = { version = "1.1.3", features = [
+    "sqlx-mysql",
+    "runtime-tokio-rustls",
+    "macros",
+] }
+#sqlx = { version = "0.8.3", features = ["mysql", "runtime-tokio"] }
+serde_json = "1.0"  # 用于处理 JSON 格式
+tera = "1.19.1"
+anyhow = "1.0"
+redis = "0.29.1"
+# 宏相关
+syn = { version = "2.0", default-features = false }
+quote = "1"
+proc-macro2 = "1"
+# 字符处理相关
+heck = "0.5.0" 
+hyper = "1.5.0"
+thiserror = "2.0.11"
+jsonwebtoken = "9.3"
+serde_qs = "0.14.0"
+md5="0.7.0"
+bcrypt = "0.17.0"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "fmt"] }
+tracing-appender = "0.2"
+once_cell = "1.19.0"
+# 时间
+chrono = "0.4"
+[dependencies]
+sea-orm = { workspace = true ,features = ['macros']}
+diesel = { workspace = true }
+axum = { workspace = true }
+tokio = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+serde_qs = { workspace = true }
+tower = {workspace = true}
+dotenv = {workspace = true}
+tera = {workspace = true}
+r2d2 = {workspace = true}
+s-orm = { path="s-orm" }
+res = {path="res"}
+redis = {workspace = true}
+anyhow = {workspace = true}
+redis_r2d2 = {path="redis-r2d2"}
+md5 = {workspace = true}
+hyper = {workspace = true}
+jsonwebtoken = {workspace = true}
+thiserror = {workspace = true}
+chrono ={ workspace = true}
+bcrypt = {workspace = true}
+s-derive = { workspace = true, features = ["sea"] }
+tracing = {workspace = true}
+tracing-subscriber = {workspace = true}
+tracing-appender = {workspace = true}
+proc-macro2 = {workspace = true}
+once_cell = {workspace = true}
+bytes = {workspace = true}
